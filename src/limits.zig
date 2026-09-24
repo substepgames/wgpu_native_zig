@@ -45,6 +45,7 @@ pub const Limits = extern struct {
     max_compute_workgroup_size_y: u32 = WGPU_LIMIT_U32_UNDEFINED,
     max_compute_workgroup_size_z: u32 = WGPU_LIMIT_U32_UNDEFINED,
     max_compute_workgroups_per_dimension: u32 = WGPU_LIMIT_U32_UNDEFINED,
+    max_immediate_size: u32 = WGPU_LIMIT_U32_UNDEFINED,
 };
 
 pub const WGPUNativeLimits = extern struct {

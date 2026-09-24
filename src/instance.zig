@@ -163,6 +163,7 @@ extern fn wgpuGetInstanceCapabilities(capabilities: *InstanceCapabilities) Statu
 
 extern fn wgpuCreateInstance(descriptor: ?*const InstanceDescriptor) ?*Instance;
 extern fn wgpuInstanceCreateSurface(instance: *Instance, descriptor: *const SurfaceDescriptor) ?*Surface;
+// TODO: https://github.com/webgpu-native/webgpu-headers/commit/c8b371dd2ff8a2b028fdc0206af5958521181ba8
 extern fn wgpuInstanceGetWGSLLanguageFeatures(instance: *Instance, features: *SupportedWGSLLanguageFeatures) Status;
 extern fn wgpuInstanceHasWGSLLanguageFeature(instance: *Instance, feature: WGSLLanguageFeatureName) WGPUBool;
 extern fn wgpuInstanceProcessEvents(instance: *Instance) void;

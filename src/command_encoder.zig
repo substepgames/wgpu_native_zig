@@ -171,6 +171,7 @@ pub const ColorAttachment = extern struct {
 };
 
 pub const DepthStencilAttachment = extern struct {
+    next_in_chain: ?*const ChainedStruct = null,
     view: *TextureView,
     depth_load_op: LoadOp = LoadOp.@"undefined",
     depth_store_op: StoreOp = StoreOp.@"undefined",
