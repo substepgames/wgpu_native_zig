@@ -11,15 +11,15 @@ pub fn build(b: *std.Build) void {
 
     const wgpu_root = "lib/wgpu-native";
 
-    const wgpu_mod = b.addModule("wgpu", .{
+    const root_module = b.addModule("wgpu", .{
         .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
         .link_libcpp = true,
     });
 
-    wgpu_mod.addIncludePath(b.path(wgpu_root ++ "/ffi"));
-    wgpu_mod.addIncludePath(b.path(wgpu_root ++ "/ffi/include/webgpu"));
+    root_module.addIncludePath(b.path(wgpu_root ++ "/ffi"));
+    root_module.addIncludePath(b.path(wgpu_root ++ "/ffi/include/webgpu"));
 
     const translate_step = b.addTranslateC(.{
         .root_source_file = b.path(
@@ -49,6 +49,6 @@ pub fn build(b: *std.Build) void {
 
     _ = write_files.addCopyFile(wgpu_so_path, "libwgpu_native.so");
 
-    wgpu_mod.addLibraryPath(wgpu_lib_dir);
-    wgpu_mod.linkSystemLibrary("wgpu_native", .{});
+    root_module.addLibraryPath(wgpu_lib_dir);
+    root_module.linkSystemLibrary("wgpu_native", .{});
 }
